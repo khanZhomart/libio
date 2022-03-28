@@ -11,11 +11,9 @@ import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
-@Slf4j
 public class UserService implements Servable<User> {
     private final UserRepository userRepository;
 

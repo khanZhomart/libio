@@ -17,15 +17,31 @@ import lombok.AllArgsConstructor;
 public class RentController {
     private final RentService rentService;
 
+    @GetMapping
+    public ResponseEntity<?> findAllBooksByUserId(@RequestParam Long userId) {
+        return ResponseEntity.ok(
+            this.rentService.findAllByUserId(userId)
+        );
+    }
+
     @GetMapping("/")
-    public ResponseEntity<?> findAllBooks() {
-        return null;   
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok(
+            this.rentService.findAll()
+        );
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestParam Long userId, @RequestParam Long bookId) {
         return ResponseEntity.ok(
             this.rentService.save(userId, bookId)
+        );
+    }
+
+    @PostMapping("/remove")
+    public ResponseEntity<?> remove(@RequestParam Long userId, @RequestParam Long bookId) {
+        return ResponseEntity.ok(
+            null
         );
     }
 }

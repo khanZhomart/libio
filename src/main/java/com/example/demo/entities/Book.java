@@ -35,6 +35,5 @@ public class Book {
     private String description;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JsonBackReference
     private Collection<User> renters;
 }

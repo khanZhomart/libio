@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,13 +34,11 @@ public class User {
 
     private String username;
 
-    @JsonIgnore
     private String password;
 
     @ManyToMany(
         mappedBy = "renters",
         cascade = CascadeType.ALL
     )
-    @JsonManagedReference(value = "user-books")
     private Collection<Book> books;
 }

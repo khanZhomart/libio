@@ -13,32 +13,74 @@
     ">
 	<changeSet id="202010211812" author="talgatulyzh">
 		<createTable tableName="users">
-			<column name="id" type="bigint">
-				<constraints primaryKey="true" primaryKeyName="user_id_pk" />
+			<column 
+				name="id" 
+				type="bigint"
+			>
+				<constraints 
+					primaryKey="true" 
+					primaryKeyName="user_id_pk" 
+				/>
 			</column>
-			<column name="username" type="varchar(250)">
-				<constraints unique="true" uniqueConstraintName="username_unq" />
+			<column 
+				name="username" 
+				type="varchar(250)"
+			>
+				<constraints 
+					unique="true" 
+					uniqueConstraintName="username_unq" 
+				/>
 			</column>
-			<column name="password" type="varchar(250)" />
+			<column 
+				name="password" 
+				type="varchar(250)" 
+			/>
 		</createTable>
 
 		<createTable tableName="book">
-			<column name="id" type="bigint">
-				<constraints primaryKey="true" primaryKeyName="book_id_pk" />
+			<column 
+				name="id" 
+				type="bigint"
+			>
+				<constraints 
+					primaryKey="true" 
+					primaryKeyName="book_id_pk" 
+				/>
 			</column>
-			<column name="title" type="varchar(250)" />
-			<column name="author" type="varchar(250)" />
-			<column name="description" type="varchar(250)" />
+			<column 
+				name="title" 
+				type="varchar(250)" 
+			/>
+			<column 
+				name="author" 
+				type="varchar(250)" 
+			/>
+			<column 
+				name="description" 
+				type="varchar(250)" 
+			/>
 		</createTable>
 
 		<createTable tableName="rent">
-			<column name="id" type="bigint">
-				<constraints primaryKey="true" primaryKeyName="rent_id_pk" />
+			<column 
+				name="id" 
+				type="bigint"
+			>
+				<constraints 
+					primaryKey="true" 
+					primaryKeyName="rent_id_pk" 
+				/>
 			</column>
-			<column name="user_id" type="bigint">
+			<column 
+				name="user_id" 
+				type="bigint"
+			>
 				<constraints nullable="false" />
 			</column>
-			<column name="book_id" type="bigint">
+			<column 
+				name="book_id" 
+				type="bigint"
+			>
 				<constraints nullable="false" />
 			</column>
 		</createTable>
@@ -67,21 +109,21 @@
 			quotchar="'"
 			file="db/data/users.csv"
 		> 
-		<column  
-			name="id"
-			type="SEQUENCE"
-			defaultValue="sequence_generator"
-		/> 
-		<column  
-			name="username" 
-			header="username"
-			type="string"
-		/>
-		<column  
-			name="password"
-			header="password"
-			type="string"
-		/>
+			<column  
+				name="id"
+				type="SEQUENCE"
+				defaultValue="sequence_generator"
+			/> 
+			<column  
+				name="username" 
+				header="username"
+				type="string"
+			/>
+			<column  
+				name="password"
+				header="password"
+				type="string"
+			/>
 		</loadData>
 		<loadData
 			tableName="book"
@@ -109,5 +151,28 @@
 				type="string" 
 			/>
 		</loadData>
+	</changeSet>
+
+	<changeSet id="202203291443" author="talgatulyzh">
+		<addColumn tableName="rent">
+			<column 
+				name="created_at"
+				type="date"
+				valueDate="current_datetime"
+				defaultValueDate="current_datetime"
+			/>
+		</addColumn>
+	</changeSet>
+
+	<changeSet id="202203291520" author="talgatulyzh">
+	    <createSequence  
+            dataType="int"  
+            incrementBy="2"  
+            maxValue="1000"  
+            minValue="10"  
+            schemaName="public"  
+            sequenceName="sequence_generator"  
+            startValue="10"
+		/>  
 	</changeSet>
 </databaseChangeLog>

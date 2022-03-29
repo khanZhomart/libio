@@ -175,4 +175,14 @@
             startValue="10"
 		/>  
 	</changeSet>
+
+	<changeSet id="202203291531" author="talgatulyzh">
+		<addColumn tableName="rent">
+			<column 
+				name="status"
+				type="varchar(250)"
+				defaultValue="TAKEN"
+			/>
+		</addColumn>
+	</changeSet>
 </databaseChangeLog>

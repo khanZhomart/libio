@@ -23,28 +23,28 @@ public class UserController {
     @GetMapping("/")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(
-            this.userService.findAll()
+            userService.findAll()
         );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(
-            this.userService.findById(id)
+            userService.findById(id)
         );
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody User payload) {
         return ResponseEntity.ok(
-            this.userService.save(payload)
+            userService.save(payload)
         );
     }
 
     @PostMapping("/remove")
     public ResponseEntity<?> removeById(@RequestParam Long id) {
         return ResponseEntity.ok(
-            this.userService.removeById(id)
+            userService.removeById(id)
         );
     }
 

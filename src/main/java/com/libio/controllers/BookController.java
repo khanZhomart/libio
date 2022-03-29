@@ -18,33 +18,33 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/book")
 @AllArgsConstructor
 public class BookController {
-    private BookService bookService;
+    private final BookService bookService;
 
     @GetMapping("/")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(
-            this.bookService.findAll()
+            bookService.findAll()
         );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(
-            this.bookService.findById(id)
+            bookService.findById(id)
         );
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Book payload) {
         return ResponseEntity.ok(
-            this.bookService.save(payload)
+            bookService.save(payload)
         );
     }
 
     @PostMapping("/remove")
     public ResponseEntity<?> removeById(@RequestParam Long id) {
         return ResponseEntity.ok(
-            this.bookService.removeById(id)
+            bookService.removeById(id)
         );
     }
 }

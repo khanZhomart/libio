@@ -36,11 +36,28 @@
 				<constraints primaryKey="true" primaryKeyName="rent_id_pk" />
 			</column>
 			<column name="user_id" type="bigint">
-				<constraints nullable="false" foreignKeyName="fk_rent_user" references="users(id)" />
+				<constraints nullable="false" />
 			</column>
 			<column name="book_id" type="bigint">
-				<constraints nullable="false" foreignKeyName="fk_book_user" references="book(id)" />
+				<constraints nullable="false" />
 			</column>
 		</createTable>
+	</changeSet>
+
+	<changeSet id="202010211813" author="talgatulyzh">
+		<addForeignKeyConstraint  
+			baseColumnNames="user_id"  
+            baseTableName="rent"  
+            constraintName="fk_rent_user_id"  
+            referencedColumnNames="id"  
+            referencedTableName="users"  
+		/>  
+		<addForeignKeyConstraint  
+			baseColumnNames="book_id"  
+            baseTableName="rent"  
+            constraintName="fk_rent_book_id"  
+            referencedColumnNames="id"  
+            referencedTableName="book"  
+		/>  
 	</changeSet>
 </databaseChangeLog>

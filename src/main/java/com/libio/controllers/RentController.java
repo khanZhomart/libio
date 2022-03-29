@@ -20,21 +20,21 @@ public class RentController {
     @GetMapping
     public ResponseEntity<?> findAllBooksByUserId(@RequestParam Long userId) {
         return ResponseEntity.ok(
-            this.rentService.findAllByUserId(userId)
+            rentService.findAllByUserId(userId)
         );
     }
 
     @GetMapping("/")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(
-            this.rentService.findAll()
+            rentService.findAll()
         );
     }
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestParam Long userId, @RequestParam Long bookId) {
         return ResponseEntity.ok(
-            this.rentService.save(userId, bookId)
+            rentService.save(userId, bookId)
         );
     }
 

@@ -19,26 +19,26 @@ public class BookService implements Servable<Book> {
     @Override
     public List<Book> findAll() {
         return Lists.newArrayList(
-            this.bookRepository.findAll()
+            bookRepository.findAll()
         );
     }
 
     @Override
     public Book findById(Long id) {
-        return this.bookRepository.findById(id).orElse(null);
+        return bookRepository.findById(id).orElse(null);
     }
 
     @Override
     public Book save(Book payload) {
-        return this.bookRepository.save(payload);
+        return bookRepository.save(payload);
     }
 
     @Override
     public boolean removeById(Long id) {
-        if (!this.bookRepository.existsById(id))
+        if (!bookRepository.existsById(id))
             throw new NoSuchElementException("Invalid book was provided. " + id);
 
-        this.bookRepository.deleteById(id);
+        bookRepository.deleteById(id);
         return true;
     }
     

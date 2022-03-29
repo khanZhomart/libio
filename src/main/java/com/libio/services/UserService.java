@@ -19,32 +19,32 @@ public class UserService implements Servable<User> {
     @Override
     public List<User> findAll() {
         return Lists.newArrayList(
-            this.userRepository.findAll()
+            userRepository.findAll()
         );
     }
 
     @Override
     public User findById(Long id) {
-        return this.userRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
     public User save(User payload) {
-        if (this.userRepository.existsByUsername(payload.getUsername()))
+        if (userRepository.existsByUsername(payload.getUsername()))
             throw new IllegalArgumentException("Username {" + payload.getUsername() + "} is already reserved.");
         
         if (payload.getPassword() == null || payload.getUsername() == null)
             throw new IllegalArgumentException("Invalid fields.");
 
-        return this.userRepository.save(payload);
+        return userRepository.save(payload);
     }
 
     @Override
     public boolean removeById(Long id) {
-        if (!this.userRepository.existsById(id))
+        if (!userRepository.existsById(id))
             throw new NoSuchElementException("Invalid user was provided. " + id);
 
-        this.userRepository.deleteById(id);
+        userRepository.deleteById(id);
         return true;
     }
     

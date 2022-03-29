@@ -21,25 +21,25 @@ public class RentService {
     private final RentRepository rentRepository;
     
     public List<Rent> findAllByUserId(Long userId) {
-        User user = this.userRepository.findById(userId).orElse(null);
+        User user = userRepository.findById(userId).orElse(null);
         
         if (user == null)
             throw new NoSuchElementException("User does not exist." + userId);
 
         return Lists.newArrayList(
-            this.rentRepository.findAllByUser(user)
+            rentRepository.findAllByUser(user)
         );
     }
 
     public List<Rent> findAll() {
         return Lists.newArrayList(
-            this.rentRepository.findAll()
+            rentRepository.findAll()
         );
     }
 
     public Rent save(Long userId, Long bookId) {
-        User user = this.userRepository.findById(userId).orElse(null);
-        Book book = this.bookRepository.findById(bookId).orElse(null);
+        User user = userRepository.findById(userId).orElse(null);
+        Book book = bookRepository.findById(bookId).orElse(null);
 
         if (user == null || book == null)
             throw new NoSuchElementException("Invalid entity id(s)");
@@ -49,7 +49,7 @@ public class RentService {
             .book(book)
             .build();
 
-        return this.rentRepository.save(rent);
+        return rentRepository.save(rent);
     }
 
     public boolean remove(Long userId, Long bookId) {

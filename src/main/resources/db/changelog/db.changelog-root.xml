@@ -60,4 +60,54 @@
             referencedTableName="book"  
 		/>  
 	</changeSet>
+
+	<changeSet id="202203291234" author="talgatulyzh">
+		<loadData 
+			tableName="users"
+			quotchar="'"
+			file="db/data/users.csv"
+		> 
+		<column  
+			name="id"
+			type="SEQUENCE"
+			defaultValue="sequence_generator"
+		/> 
+		<column  
+			name="username" 
+			header="username"
+			type="string"
+		/>
+		<column  
+			name="password"
+			header="password"
+			type="string"
+		/>
+		</loadData>
+		<loadData
+			tableName="book"
+			quotchar="'"
+			file="db/data/book.csv"
+		>
+			<column 
+				name="id" 
+				type="SEQUENCE"
+				defaultValue="sequence_generator"
+			/>
+			<column 
+				name="title"
+				header="title" 
+				type="string" 
+			/>
+			<column 
+				name="author" 
+				header="author"
+				type="string" 
+			/>
+			<column 
+				name="description" 
+				header="description"
+				type="string" 
+			/>
+		</loadData>
+	</changeSet>
 </databaseChangeLog>

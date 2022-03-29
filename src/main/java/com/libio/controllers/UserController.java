@@ -1,7 +1,7 @@
-package com.example.demo.controllers;
+package com.libio.controllers;
 
-import com.example.demo.entities.Book;
-import com.example.demo.services.BookService;
+import com.libio.entities.User;
+import com.libio.services.UserService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,36 +15,41 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/user")
 @AllArgsConstructor
-public class BookController {
-    private BookService bookService;
+public class UserController {
+    private final UserService userService;
 
     @GetMapping("/")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(
-            this.bookService.findAll()
+            this.userService.findAll()
         );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(
-            this.bookService.findById(id)
+            this.userService.findById(id)
         );
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody Book payload) {
+    public ResponseEntity<?> save(@RequestBody User payload) {
         return ResponseEntity.ok(
-            this.bookService.save(payload)
+            this.userService.save(payload)
         );
     }
 
     @PostMapping("/remove")
     public ResponseEntity<?> removeById(@RequestParam Long id) {
         return ResponseEntity.ok(
-            this.bookService.removeById(id)
+            this.userService.removeById(id)
         );
+    }
+
+    @PostMapping("/rent")
+    public ResponseEntity<?> rent(@RequestParam Long userId, @RequestParam Long bookId) {
+        return null;
     }
 }

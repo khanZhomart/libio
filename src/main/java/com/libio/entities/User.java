@@ -1,4 +1,4 @@
-package com.example.demo.entities;
+package com.libio.entities;
 
 import java.util.Collection;
 
@@ -12,47 +12,44 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "books")
+@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Builder
 @Data
-public class Book {
+public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String title;
+    private String username;
 
-    private String description;
+    private String password;
 
     @OneToMany(
-        mappedBy = "book",
+        mappedBy = "user",
         fetch = FetchType.LAZY
     )
     @JsonIgnore
     private Collection<Rent> rents;
 
-    public Book(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public Book(String title, String description, Collection<Rent> rents) {
-        this.title = title;
-        this.description = description;
-        this.rents = rents;
-    }
-
-    public Book(Long id, String title, String description, Collection<Rent> rents) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
+    public User(String username, String password, Collection<Rent> rents) {
+        this.username = username;
+        this.password = password;
         this.rents = rents;
     }
 }

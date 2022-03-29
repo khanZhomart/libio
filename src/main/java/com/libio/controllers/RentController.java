@@ -1,6 +1,6 @@
-package com.example.demo.controllers;
+package com.libio.controllers;
 
-import com.example.demo.services.RentService;
+import com.libio.services.RentService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package com.libio.repositories;
 
-import com.example.demo.entities.Book;
+import com.libio.entities.Book;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

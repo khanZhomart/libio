@@ -1,13 +1,13 @@
-package com.example.demo.services;
+package com.libio.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.example.demo.entities.Book;
-import com.example.demo.entities.Rent;
-import com.example.demo.entities.User;
-import com.example.demo.repositories.*;
 import com.google.common.collect.Lists;
+import com.libio.entities.Book;
+import com.libio.entities.Rent;
+import com.libio.entities.User;
+import com.libio.repositories.*;
 
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,11 @@
-package com.example.demo.services;
-
+package com.libio.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.example.demo.entities.User;
-import com.example.demo.repositories.UserRepository;
 import com.google.common.collect.Lists;
+import com.libio.entities.User;
+import com.libio.repositories.UserRepository;
 
 import org.springframework.stereotype.Service;
 
